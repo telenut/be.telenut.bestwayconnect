@@ -21,8 +21,7 @@
   },
   "sdk": 3,
   "platforms": [
-    "local",
-    "cloud"
+    "local"
   ],
   "capabilities": {
     "bestway_heat": {
