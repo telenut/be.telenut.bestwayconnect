@@ -1,0 +1,92 @@
+{
+  "id": "be.telenut.bestwayconnect",
+  "name": {
+    "en": "Bestway / Lay-Z Spa"
+  },
+  "version": "1.0.0",
+  "compatibility": ">=10.0.0",
+  "author": {
+    "name": "Steven Algoet",
+    "email": "info@telenut.be"
+  },
+  "category": [
+    "appliances"
+  ],
+  "sdk": 3,
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+  "capabilities": {
+    "bestway_heat": {
+      "type": "boolean",
+      "title": {
+        "en": "Heating",
+        "nl": "Verwarming"
+      },
+      "uiComponent": "toggle",
+      "icon": "/assets/heat.svg",
+      "getable": true,
+      "setable": true
+    },
+    "bestway_wave": {
+      "type": "boolean",
+      "title": {
+        "en": "Bubbles",
+        "nl": "Bubbels"
+      },
+      "uiComponent": "toggle",
+      "icon": "/assets/wave.svg",
+      "getable": true,
+      "setable": true
+    },
+    "bestway_filter": {
+      "type": "boolean",
+      "title": {
+        "en": "Filter",
+        "nl": "Filter"
+      },
+      "uiComponent": "toggle",
+      "icon": "/assets/filter.svg",
+      "getable": true,
+      "setable": true
+    }
+  },
+  "drivers": [
+    {
+      "id": "bestway_pump",
+      "name": {
+        "en": "Lay-Z Spa Pump",
+        "nl": "Lay-Z Spa Pomp"
+      },
+      "class": "heater",
+      "capabilities": [
+        "onoff",
+        "target_temperature",
+        "measure_temperature",
+        "bestway_heat",
+        "bestway_wave",
+        "bestway_filter"
+      ],
+      "capabilitiesOptions": {
+        "bestway_heat": {
+          "uiComponent": "toggle",
+          "displayOrder": 1
+        },
+        "bestway_wave": {
+          "uiComponent": "toggle",
+          "displayOrder": 2
+        },
+        "bestway_filter": {
+          "uiComponent": "toggle",
+          "displayOrder": 3
+        }
+      },
+      "pair": [
+        {
+          "id": "manual_input"
+        }
+      ]
+    }
+  ]
+}
