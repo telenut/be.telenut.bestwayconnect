@@ -13,5 +13,8 @@
   },
   "1.0.4": {
     "en": "removed cloud support"
+  },
+  "1.0.5": {
+    "en": "added description"
   }
 }
