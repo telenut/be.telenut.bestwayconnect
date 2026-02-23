@@ -14,6 +14,11 @@
   "category": [
     "appliances"
   ],
+"brandColor": "#005599",
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
   "sdk": 3,
   "platforms": [
     "local",
