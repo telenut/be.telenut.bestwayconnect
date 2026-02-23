@@ -1,7 +1,8 @@
 {
   "id": "be.telenut.bestwayconnect",
   "name": {
-    "en": "Bestway / Lay-Z Spa"
+    "en": "Bestway / Lay-Z Spa",
+    "nl": "Bestway / Lay-Z Spa"
   },
   "version": "1.0.0",
   "compatibility": ">=10.0.0",
@@ -9,6 +10,7 @@
     "name": "Steven Algoet",
     "email": "info@telenut.be"
   },
+  "support": "https://github.com/telenut/be.telenut.bestwayconnect/issues",
   "category": [
     "appliances"
   ],
@@ -81,6 +83,10 @@
           "uiComponent": "toggle",
           "displayOrder": 3
         }
+      },
+      "images": {
+        "large": "/drivers/bestway_pump/assets/images/large.png",
+        "small": "/drivers/bestway_pump/assets/images/small.png"
       },
       "pair": [
         {
