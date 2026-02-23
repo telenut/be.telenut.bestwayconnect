@@ -10,6 +10,10 @@
     "name": "Steven Algoet",
     "email": "info@telenut.be"
   },
+  "description": {
+    "en": "Control your Bestway Lay-Z Spa with ease via Homey.",
+    "nl": "Bedien je Bestway Lay-Z Spa eenvoudig via Homey."
+  },
   "support": "https://github.com/telenut/be.telenut.bestwayconnect/issues",
   "category": [
     "appliances"
