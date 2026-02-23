@@ -1,5 +1,11 @@
 {
   "1.0.0": {
     "en": "First version!"
+  },
+  "1.0.1": {
+    "en": "bugfixes"
+  },
+  "1.0.2": {
+    "en": "readme included"
   }
 }

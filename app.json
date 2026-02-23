@@ -4,7 +4,7 @@
     "en": "Bestway / Lay-Z Spa",
     "nl": "Bestway / Lay-Z Spa"
   },
-  "version": "1.0.0",
+  "version": "1.0.2",
   "compatibility": ">=10.0.0",
   "author": {
     "name": "Steven Algoet",
@@ -14,7 +14,7 @@
   "category": [
     "appliances"
   ],
-"brandColor": "#005599",
+  "brandColor": "#005599",
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
