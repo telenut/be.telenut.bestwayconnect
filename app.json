@@ -4,7 +4,7 @@
     "en": "Bestway / Lay-Z Spa",
     "nl": "Bestway / Lay-Z Spa"
   },
-  "version": "1.0.5",
+  "version": "1.0.6",
   "compatibility": ">=10.0.0",
   "author": {
     "name": "Steven Algoet",
@@ -69,7 +69,7 @@
         "en": "Lay-Z Spa Pump",
         "nl": "Lay-Z Spa Pomp"
       },
-      "class": "kettle", 
+      "class": "kettle",
       "capabilities": [
         "onoff",
         "measure_temperature",
