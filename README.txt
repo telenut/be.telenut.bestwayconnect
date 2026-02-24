@@ -5,17 +5,11 @@ Deze Homey app maakt het mogelijk om de nieuwe generatie **Bestway / Lay-Z Spa (
 ## Functies
 - Aan/Uit schakelen van de pomp.
 - Temperatuur uitlezen en instellen.
-- Afzonderlijke knoppen voor:
+- Afzonderlijk in of uitschakelen van
   - **Verwarming**
   - **Filterpomp**
   - **Bubbels / Jets**
-
-## Installatie (Ontwikkelaars)
-Omdat deze app nog in actieve ontwikkeling is, moet deze momenteel via de Homey CLI worden geïnstalleerd:
-
-1. Clone deze repository.
-2. Open de terminal in de projectmap.
-3. Voer `homey app install` uit.
+Al deze functies ook te gebruiken in een flow natuurlijk
 
 ## Koppelen
 1. Open de **Bestway Smart Hub** app op je telefoon.
@@ -25,4 +19,4 @@ Omdat deze app nog in actieve ontwikkeling is, moet deze momenteel via de Homey 
 
 ## Auteur
 Ontwikkeld door **Steven Algoet** (info@telenut.be).
-Gebaseerd op reverse engineering van de Bestway AWS IoT API.
+100% Vibe coding , support zal dus zeer beperkt zijn.

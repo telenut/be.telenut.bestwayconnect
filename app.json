@@ -62,29 +62,38 @@
       "setable": true
     }
   },
-  "drivers": [
+ "drivers": [
     {
       "id": "bestway_pump",
       "name": {
         "en": "Lay-Z Spa Pump",
         "nl": "Lay-Z Spa Pomp"
       },
-      "class": "kettle",
+      "class": "heater",
       "capabilities": [
         "onoff",
-        "measure_temperature",
         "target_temperature",
+        "measure_temperature",
         "bestway_heat",
         "bestway_wave",
         "bestway_filter"
       ],
-      "uiStrategy": {
-        "type": "shortcuts",
-        "capabilities": [
-          "bestway_heat",
-          "bestway_wave",
-          "bestway_filter"
-        ]
+      "capabilitiesOptions": {
+        "onoff": {
+          "title": { "en": "Main Power", "nl": "Hoofdschakelaar" }
+        },
+        "bestway_heat": {
+          "uiComponent": "toggle",
+          "uiStrategy": false
+        },
+        "bestway_wave": {
+          "uiComponent": "toggle",
+          "uiStrategy": false
+        },
+        "bestway_filter": {
+          "uiComponent": "toggle",
+          "uiStrategy": false
+        }
       },
       "images": {
         "large": "/drivers/bestway_pump/assets/images/large.png",
@@ -96,5 +105,6 @@
         }
       ]
     }
+  ]
   ]
 }
