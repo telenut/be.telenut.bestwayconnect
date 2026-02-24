@@ -4,7 +4,7 @@
     "en": "Bestway / Lay-Z Spa",
     "nl": "Bestway / Lay-Z Spa"
   },
-  "version": "1.0.6",
+  "version": "1.0.7",
   "compatibility": ">=10.0.0",
   "author": {
     "name": "Steven Algoet",
@@ -15,25 +15,19 @@
     "nl": "Bedien je Bestway Lay-Z Spa eenvoudig via Homey."
   },
   "support": "https://github.com/telenut/be.telenut.bestwayconnect/issues",
-  "category": [
-    "appliances"
-  ],
+  "category": ["appliances"],
   "brandColor": "#005599",
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
   },
   "sdk": 3,
-  "platforms": [
-    "local"
-  ],
+  "platforms": ["local"],
+
   "capabilities": {
     "bestway_heat": {
       "type": "boolean",
-      "title": {
-        "en": "Heating",
-        "nl": "Verwarming"
-      },
+      "title": { "en": "Heating", "nl": "Verwarming" },
       "uiComponent": "toggle",
       "icon": "/assets/heat.svg",
       "getable": true,
@@ -41,10 +35,7 @@
     },
     "bestway_wave": {
       "type": "boolean",
-      "title": {
-        "en": "Bubbles",
-        "nl": "Bubbels"
-      },
+      "title": { "en": "Bubbles", "nl": "Bubbels" },
       "uiComponent": "toggle",
       "icon": "/assets/wave.svg",
       "getable": true,
@@ -52,17 +43,15 @@
     },
     "bestway_filter": {
       "type": "boolean",
-      "title": {
-        "en": "Filter",
-        "nl": "Filter"
-      },
+      "title": { "en": "Filter", "nl": "Filter" },
       "uiComponent": "toggle",
       "icon": "/assets/filter.svg",
       "getable": true,
       "setable": true
     }
   },
- "drivers": [
+
+  "drivers": [
     {
       "id": "bestway_pump",
       "name": {
@@ -70,6 +59,9 @@
         "nl": "Lay-Z Spa Pomp"
       },
       "class": "heater",
+      "ui": {
+        "component": "device"
+      },
       "capabilities": [
         "onoff",
         "target_temperature",
@@ -80,19 +72,16 @@
       ],
       "capabilitiesOptions": {
         "onoff": {
-          "title": { "en": "Main Power", "nl": "Hoofdschakelaar" }
+          "title": {
+            "en": "Main Power",
+            "nl": "Hoofdschakelaar"
+          }
         },
-        "bestway_heat": {
-          "uiComponent": "toggle",
-          "uiStrategy": false
-        },
-        "bestway_wave": {
-          "uiComponent": "toggle",
-          "uiStrategy": false
-        },
-        "bestway_filter": {
-          "uiComponent": "toggle",
-          "uiStrategy": false
+        "target_temperature": {
+          "title": {
+            "en": "Target temperature",
+            "nl": "Doeltemperatuur"
+          }
         }
       },
       "images": {
@@ -100,11 +89,8 @@
         "small": "/drivers/bestway_pump/assets/images/small.png"
       },
       "pair": [
-        {
-          "id": "manual_input"
-        }
+        { "id": "manual_input" }
       ]
     }
-  ]
   ]
 }
