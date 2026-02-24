@@ -69,28 +69,22 @@
         "en": "Lay-Z Spa Pump",
         "nl": "Lay-Z Spa Pomp"
       },
-      "class": "heater",
+      "class": "kettle", 
       "capabilities": [
         "onoff",
-        "target_temperature",
         "measure_temperature",
+        "target_temperature",
         "bestway_heat",
         "bestway_wave",
         "bestway_filter"
       ],
-      "capabilitiesOptions": {
-        "bestway_heat": {
-          "uiComponent": "toggle",
-          "displayOrder": 1
-        },
-        "bestway_wave": {
-          "uiComponent": "toggle",
-          "displayOrder": 2
-        },
-        "bestway_filter": {
-          "uiComponent": "toggle",
-          "displayOrder": 3
-        }
+      "uiStrategy": {
+        "type": "shortcuts",
+        "capabilities": [
+          "bestway_heat",
+          "bestway_wave",
+          "bestway_filter"
+        ]
       },
       "images": {
         "large": "/drivers/bestway_pump/assets/images/large.png",
