@@ -1,5 +1,6 @@
 {
   "id": "be.telenut.bestwayconnect",
+  "sdk": 3,
   "name": {
     "en": "Bestway / Lay-Z Spa",
     "nl": "Bestway / Lay-Z Spa"
@@ -8,26 +9,35 @@
     "en": "Control your Bestway Lay-Z Spa (V02/AWS models) with ease via Homey.",
     "nl": "Bedien je Bestway Lay-Z Spa (V02/AWS modellen) eenvoudig via Homey."
   },
-  "version": "1.0.2",
+  "version": "1.0.13",
   "compatibility": ">=10.0.0",
   "author": {
     "name": "Steven Algoet",
     "email": "info@telenut.be"
   },
-  "support": "https://github.com/telenut/be.telenut.bestwayconnect/issues",
+  "brandColor": "#005599",
   "category": [
     "appliances"
   ],
-  "brandColor": "#005599",
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
   },
-  "sdk": 3,
   "platforms": [
     "local"
   ],
   "capabilities": {
+    "bestway_power": {
+      "type": "boolean",
+      "title": {
+        "en": "Power",
+        "nl": "Stroom"
+      },
+      "uiComponent": "toggle",
+      "icon": "/assets/filter.svg",
+      "getable": true,
+      "setable": true
+    },
     "bestway_heat": {
       "type": "boolean",
       "title": {
@@ -69,27 +79,24 @@
         "en": "Lay-Z Spa Pump",
         "nl": "Lay-Z Spa Pomp"
       },
-      "class": "heater",
+      "class": "sensor",
       "capabilities": [
-        "onoff",
         "target_temperature",
         "measure_temperature",
+        "bestway_power",
         "bestway_heat",
         "bestway_wave",
         "bestway_filter"
       ],
       "capabilitiesOptions": {
-        "onoff": {
-          "onTag": false,
-          "title": {
-            "en": "Power",
-            "nl": "Stroom"
-          }
-        },
         "target_temperature": {
           "min": 10,
           "max": 40,
           "step": 1
+        },
+        "bestway_power": {
+          "uiComponent": "toggle",
+          "uiStrategy": false
         },
         "bestway_heat": {
           "uiComponent": "toggle",

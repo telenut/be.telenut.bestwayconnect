@@ -22,5 +22,8 @@
   },
   "1.0.8": {
     "en": "updated description"
+  },
+  "1.0.13": {
+    "en": "temperature can now be set to 40, button does not toggle on or off"
   }
 }
