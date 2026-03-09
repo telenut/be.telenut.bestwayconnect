@@ -4,15 +4,15 @@
     "en": "Bestway / Lay-Z Spa",
     "nl": "Bestway / Lay-Z Spa"
   },
-  "version": "1.0.8",
+  "description": {
+    "en": "Control your Bestway Lay-Z Spa (V02/AWS models) with ease via Homey.",
+    "nl": "Bedien je Bestway Lay-Z Spa (V02/AWS modellen) eenvoudig via Homey."
+  },
+  "version": "1.0.2",
   "compatibility": ">=10.0.0",
   "author": {
     "name": "Steven Algoet",
     "email": "info@telenut.be"
-  },
-  "description": {
-    "en": "Control your Bestway Lay-Z Spa with ease via Homey.",
-    "nl": "Bedien je Bestway Lay-Z Spa eenvoudig via Homey."
   },
   "support": "https://github.com/telenut/be.telenut.bestwayconnect/issues",
   "category": [
@@ -70,9 +70,6 @@
         "nl": "Lay-Z Spa Pomp"
       },
       "class": "heater",
-      "ui": {
-        "component": "device"
-      },
       "capabilities": [
         "onoff",
         "target_temperature",
@@ -83,16 +80,28 @@
       ],
       "capabilitiesOptions": {
         "onoff": {
+          "onTag": false,
           "title": {
-            "en": "Main Power",
-            "nl": "Hoofdschakelaar"
+            "en": "Power",
+            "nl": "Stroom"
           }
         },
         "target_temperature": {
-          "title": {
-            "en": "Target temperature",
-            "nl": "Doeltemperatuur"
-          }
+          "min": 10,
+          "max": 40,
+          "step": 1
+        },
+        "bestway_heat": {
+          "uiComponent": "toggle",
+          "uiStrategy": false
+        },
+        "bestway_wave": {
+          "uiComponent": "toggle",
+          "uiStrategy": false
+        },
+        "bestway_filter": {
+          "uiComponent": "toggle",
+          "uiStrategy": false
         }
       },
       "images": {
