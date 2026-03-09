@@ -9,7 +9,7 @@
     "en": "Control your Bestway Lay-Z Spa (V02/AWS models) with ease via Homey.",
     "nl": "Bedien je Bestway Lay-Z Spa (V02/AWS modellen) eenvoudig via Homey."
   },
-  "version": "1.0.15",
+  "version": "1.0.16",
   "compatibility": ">=10.0.0",
   "author": {
     "name": "Steven Algoet",
