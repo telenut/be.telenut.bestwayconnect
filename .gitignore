@@ -1,0 +1,4 @@
+.homeybuild/
+.homeycompose/
+node_modules/
+*.log

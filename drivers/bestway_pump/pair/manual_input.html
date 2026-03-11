@@ -1,0 +1,64 @@
+<style>
+  .form-group { margin-bottom: 1em; }
+  .form-group label { display: block; margin-bottom: 0.5em; font-weight: 600; }
+  .form-group input { width: 100%; box-sizing: border-box; padding: 10px; }
+  #status { margin-top: 15px; font-weight: bold; text-align: center; }
+</style>
+
+<div class="form-group">
+  <label for="qrcode">QR Code tekst (Plak hier de RW_Share_ code)</label>
+  <input type="text" id="qrcode" value="" placeholder="RW_Share_..." class="homey-input" />
+</div>
+
+<button id="loginBtn" class="homey-button-primary-full">Koppelen en Zoeken</button>
+<div id="status"></div>
+
+<script type="text/javascript">
+  // Homey SDK wacht netjes tot het scherm geladen is
+  Homey.setTitle('Lay-Z Spa Koppelen');
+  
+  document.getElementById('loginBtn').addEventListener('click', function() {
+    var btn = document.getElementById('loginBtn');
+    var status = document.getElementById('status');
+    var qrcode = document.getElementById('qrcode').value.trim();
+    
+    if(!qrcode || !qrcode.startsWith('RW_Share_')) {
+        status.innerText = "Vul een geldige code in die begint met RW_Share_";
+        status.style.color = "red";
+        return;
+    }
+
+    btn.disabled = true;
+    status.innerText = "Bezig met verifiëren bij AWS...";
+    status.style.color = "black";
+    
+    // Stuur actie naar driver.js
+    Homey.emit('link_qr', { qrcode: qrcode }, function(err, devices) {
+      btn.disabled = false;
+      
+      if(err) {
+          status.style.color = "red";
+          status.innerText = "Fout: " + err.message;
+          return;
+      }
+
+      if(!devices || devices.length === 0) {
+          status.style.color = "orange";
+          status.innerText = "Code geaccepteerd, maar geen pomp gevonden op dit account.";
+          return;
+      }
+
+      status.style.color = "green";
+      status.innerText = "Pomp gevonden! Toevoegen aan Homey...";
+      
+      // Voeg het apparaat toe en sluit af
+      Homey.addDevice(devices[0], function(err) {
+        if(err) {
+            Homey.alert("Kon apparaat niet toevoegen: " + err.message);
+            return;
+        }
+        Homey.done();
+      });
+    });
+  });
+</script>

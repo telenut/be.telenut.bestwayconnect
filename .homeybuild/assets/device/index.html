@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="/homey.js" data-origin="device"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 16px;
+    }
+
+    .tabbar {
+      display: flex;
+      margin-bottom: 16px;
+      gap: 8px;
+    }
+
+    .tabbutton {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #eee;
+      font-weight: 600;
+    }
+
+    .tabbutton.active {
+      background: #005599;
+      color: white;
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    .toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tabbar">
+    <button id="tab-main" class="tabbutton active">Main</button>
+    <button id="tab-spa" class="tabbutton">Spa</button>
+  </div>
+
+  <div id="panel-main" class="panel active">
+    <div id="cap_onoff"></div>
+    <div id="cap_target_temperature"></div>
+    <div id="cap_measure_temperature"></div>
+  </div>
+
+  <div id="panel-spa" class="panel">
+    <div id="cap_bestway_heat"></div>
+    <div id="cap_bestway_wave"></div>
+    <div id="cap_bestway_filter"></div>
+  </div>
+
+  <script>
+    function showTab(tab) {
+      document.querySelectorAll('.tabbutton').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+
+      document.getElementById('tab-' + tab).classList.add('active');
+      document.getElementById('panel-' + tab).classList.add('active');
+    }
+
+    document.getElementById('tab-main').onclick = () => showTab('main');
+    document.getElementById('tab-spa').onclick = () => showTab('spa');
+
+    Homey.ready();
+
+    // Render standaard Homey capability widgets
+    Homey.renderCapability('onoff', document.getElementById('cap_onoff'));
+    Homey.renderCapability('target_temperature', document.getElementById('cap_target_temperature'));
+    Homey.renderCapability('measure_temperature', document.getElementById('cap_measure_temperature'));
+
+    Homey.renderCapability('bestway_heat', document.getElementById('cap_bestway_heat'));
+    Homey.renderCapability('bestway_wave', document.getElementById('cap_bestway_wave'));
+    Homey.renderCapability('bestway_filter', document.getElementById('cap_bestway_filter'));
+  </script>
+
+</body>
+</html>
