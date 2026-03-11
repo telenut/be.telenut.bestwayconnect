@@ -16,7 +16,8 @@
   },
   "support": "https://github.com/telenut/be.telenut.bestwayconnect/issues",
   "source": "https://github.com/telenut/be.telenut.bestwayconnect",
-  "communityTopicId": "12345",
+  "community": "https://community.homey.app/t/app-pro-bestway-lay-z-spa-connect-aws-iot/152340",
+  "communityTopicId": "152340",
   "brandColor": "#005599",
   "category": [
     "appliances"

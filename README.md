@@ -63,3 +63,8 @@ This app is developed through reverse engineering of the Bestway AWS IoT API. It
 Developed with ❤️ by **Steven Algoet** 📧 [info@telenut.be](mailto:info@telenut.be)
 
 ---
+
+## 💬 Community & Support
+For questions, feedback, or support, please visit the official [Homey Community Forum Topic](https://community.homey.app/t/app-pro-bestway-lay-z-spa-connect-aws-iot/152340).
+
+---

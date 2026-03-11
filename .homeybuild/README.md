@@ -1,28 +1,65 @@
 # Bestway / Lay-Z Spa Connect (AWS IoT) for Homey
 
-Deze Homey app maakt het mogelijk om de nieuwe generatie **Bestway / Lay-Z Spa (V02)** pompen te bedienen die gebruikmaken van de AWS IoT cloud. In tegenstelling tot oudere apps, ondersteunt deze app de koppeling via de **QR-code deel-tekst**.
+Integrate your **Bestway / Lay-Z Spa (V02)** hot tub with Homey. This app is specifically designed for the newer generation of pumps that utilize the **AWS IoT cloud infrastructure**. 
 
-## Functies
-- Aan/Uit schakelen van de pomp.
-- Temperatuur uitlezen en instellen.
-- Afzonderlijke knoppen voor:
-  - **Verwarming**
-  - **Filterpomp**
-  - **Bubbels / Jets**
+Unlike legacy integrations, this app simplifies the connection process by using the **QR Share string** directly from the official Bestway app, bypassing complex credential sniffing.
 
-## Installatie (Ontwikkelaars)
-Omdat deze app nog in actieve ontwikkeling is, moet deze momenteel via de Homey CLI worden geïnstalleerd:
+---
 
-1. Clone deze repository.
-2. Open de terminal in de projectmap.
-3. Voer `homey app install` uit.
+## ✨ Key Features
 
-## Koppelen
-1. Open de **Bestway Smart Hub** app op je telefoon.
-2. Ga naar je pomp instellingen en kies **Apparaat delen**.
-3. Kopieer de tekst van de QR-code (deze begint met `RW_Share_`).
-4. Plak deze code in de Homey koppelingswizard.
+* **Real-time Monitoring:** View current water temperature and system status.
+* **Complete Control:**
+    * Power Toggle (System On/Off)
+    * Target Temperature Adjustment
+    * Heating Toggle
+    * Filtration System Control
+    * Massage System (Bubbles/Jets) Toggle
 
-## Auteur
-Ontwikkeld door **Steven Algoet** (info@telenut.be).
-Gebaseerd op reverse engineering van de Bestway AWS IoT API.
+---
+
+## ⚙️ Installation
+
+### 🚀 Easy Install (Recommended)
+The simplest way to install the app is via the official Homey Store test channel:
+
+👉 **[Install via Homey App Store](https://homey.app/nl-be/app/be.telenut.bestwayconnect/Bestway--Lay-Z-Spa/test/)**
+
+---
+
+### 🛠️ Developer Mode (Manual)
+If you wish to contribute or run the latest source code manually:
+
+1.  **Clone** this repository to your local machine.
+2.  Open your terminal in the project directory.
+3.  Ensure you are logged into the CLI: `homey login`.
+4.  Run the installation command:
+    ```bash
+    homey app install
+    ```
+
+---
+
+## 🔗 How to Pair
+
+To connect your spa, you will need a sharing token from the official mobile app:
+
+1.  **Open** the **Bestway Smart Hub** app on your smartphone.
+2.  **Navigate** to your pump settings and select **Device Sharing**.
+3.  **Copy** the generated text/link. 
+    > **Note:** The required string starts with `RW_Share_`.
+4.  **Start** the **Add Device** wizard in Homey and paste the code when prompted.
+
+---
+
+## ⚠️ Disclaimer
+
+This app is developed through reverse engineering of the Bestway AWS IoT API. It is not an official product of Bestway or Lay-Z Spa. Use it at your own risk.
+
+---
+
+## 👨‍💻 Author
+
+Developed with ❤️ by **Steven Algoet** 📧 [info@telenut.be](mailto:info@telenut.be)
+
+---

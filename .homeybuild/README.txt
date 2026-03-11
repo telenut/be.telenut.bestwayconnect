@@ -1,22 +1,40 @@
-# Bestway / Lay-Z Spa Connect (AWS IoT) for Homey
+# Bestway / Lay-Z Spa Connect (AWS IoT)
 
-Deze Homey app maakt het mogelijk om de nieuwe generatie **Bestway / Lay-Z Spa (V02)** pompen te bedienen die gebruikmaken van de AWS IoT cloud. In tegenstelling tot oudere apps, ondersteunt deze app de koppeling via de **QR-code deel-tekst**.
+Take full control of your hot tub with Homey. This app supports the latest generation of **Bestway / Lay-Z Spa (V02)** pumps utilizing the AWS IoT cloud. 
 
-## Functies
-- Aan/Uit schakelen van de pomp.
-- Temperatuur uitlezen en instellen.
-- Afzonderlijk in of uitschakelen van
-  - **Verwarming**
-  - **Filterpomp**
-  - **Bubbels / Jets**
-Al deze functies ook te gebruiken in een flow natuurlijk
+By using the official "Device Sharing" feature, pairing is seamless and doesn't require complex technical workarounds.
 
-## Koppelen
-1. Open de **Bestway Smart Hub** app op je telefoon.
-2. Ga naar je pomp instellingen en kies **Apparaat delen**.
-3. Kopieer de tekst van de QR-code (deze begint met `RW_Share_`).
-4. Plak deze code in de Homey koppelingswizard.
+---
 
-## Auteur
-Ontwikkeld door **Steven Algoet** (info@telenut.be).
-100% Vibe coding , support zal dus zeer beperkt zijn.
+## ✨ Features
+
+* **Monitor & Control:** Real-time water temperature and system status.
+* **Full Pump Control:**
+    * Main Power (System On/Off)
+    * Set Target Temperature
+    * Heater Toggle
+    * Filter Pump Toggle
+    * Massage System (Bubbles/Jets) Toggle
+* **Flow Support:** All functions are available as Flow cards to automate your spa experience based on energy prices, schedules, or weather.
+
+---
+
+## 🔗 How to Pair
+
+1. Open the **Bestway Smart Hub** app on your smartphone.
+2. Go to your pump settings and select **Device Sharing**.
+3. A QR code will appear. You need the text hidden behind this code:
+    * **Android:** Use 'Circle to Search' or Google Lens on the QR code to copy the text.
+    * **iOS/Other:** Scan the QR code with a scanner app and copy the resulting text string.
+    > **Note:** The required string starts with `RW_Share_`.
+4. Start the 'Add Device' wizard in Homey and paste the code when prompted.
+
+---
+
+## 👨‍💻 Author & Support
+
+Developed by **Steven Algoet** (info@telenut.be).
+
+**Note:** This app is 100% "Vibe Coding." Support is provided on a best-effort basis and is very limited. Use at your own risk.
+
+---
