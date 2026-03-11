@@ -1,7 +1,3 @@
-Natuurlijk! Dat is een belangrijke toevoeging. Het maakt de installatie voor de meeste gebruikers veel eenvoudiger dan via de CLI. Ik heb de sectie "Installation" aangepast om onderscheid te maken tussen de makkelijke methode (via de Homey Store) en de methode voor ontwikkelaars.
-
-Hier is de bijgewerkte versie van de README:
-
 Bestway / Lay-Z Spa Connect (AWS IoT) for Homey
 Integrate your Bestway / Lay-Z Spa (V02) hot tub with Homey. This app is specifically designed for the newer generation of pumps that utilize the AWS IoT cloud infrastructure.
 
