@@ -37,4 +37,6 @@ Developed by **Steven Algoet** (info@telenut.be).
 
 **Note:** This app is 100% "Vibe Coding." Support is provided on a best-effort basis and is very limited. Use at your own risk.
 
+For questions, feedback, or support, please visit the official [Homey Community Forum Topic](https://community.homey.app/t/app-pro-bestway-lay-z-spa-connect-aws-iot/152340).
+
 ---

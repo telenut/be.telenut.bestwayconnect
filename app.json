@@ -9,15 +9,14 @@
     "en": "Control your Bestway Lay-Z Spa (V02/AWS models) with ease via Homey.",
     "nl": "Bedien je Bestway Lay-Z Spa (V02/AWS modellen) eenvoudig via Homey."
   },
-  "version": "1.0.18",
+  "version": "1.0.24",
   "compatibility": ">=10.0.0",
   "author": {
     "name": "Steven Algoet"
   },
   "support": "https://github.com/telenut/be.telenut.bestwayconnect/issues",
   "source": "https://github.com/telenut/be.telenut.bestwayconnect",
-  "community": "https://community.homey.app/t/app-pro-bestway-lay-z-spa-connect-aws-iot/152340",
-  "communityTopicId": "152340",
+  "communityTopicId": "12345",
   "brandColor": "#005599",
   "category": [
     "appliances"
@@ -30,47 +29,35 @@
     "local"
   ],
   "capabilities": {
-    "bestway_power": {
-      "type": "boolean",
-      "title": {
-        "en": "Power",
-        "nl": "Stroom"
-      },
-      "uiComponent": "toggle",
-      "icon": "/assets/filter.svg",
-      "getable": true,
-      "setable": true
-    },
     "bestway_heat": {
       "type": "boolean",
-      "title": {
-        "en": "Heating",
-        "nl": "Verwarming"
-      },
-      "uiComponent": "toggle",
-      "icon": "/assets/heat.svg",
+      "title": { "en": "Heating", "nl": "Verwarming" },
+      "uiComponent": "button",
+      "icon": "/assets/icons/heat.svg",
       "getable": true,
       "setable": true
     },
     "bestway_wave": {
       "type": "boolean",
-      "title": {
-        "en": "Bubbles",
-        "nl": "Bubbels"
-      },
-      "uiComponent": "toggle",
-      "icon": "/assets/wave.svg",
+      "title": { "en": "Bubbles", "nl": "Bubbels" },
+      "uiComponent": "button",
+      "icon": "/assets/icons/wave.svg",
+      "getable": true,
+      "setable": true
+    },
+    "bestway_jet": {
+      "type": "boolean",
+      "title": { "en": "Hydrojets", "nl": "Hydrojets" },
+      "uiComponent": "button",
+      "icon": "/assets/icons/jet.svg",
       "getable": true,
       "setable": true
     },
     "bestway_filter": {
       "type": "boolean",
-      "title": {
-        "en": "Filter",
-        "nl": "Filter"
-      },
-      "uiComponent": "toggle",
-      "icon": "/assets/filter.svg",
+      "title": { "en": "Filter", "nl": "Filter" },
+      "uiComponent": "button",
+      "icon": "/assets/icons/filter.svg",
       "getable": true,
       "setable": true
     }
@@ -82,139 +69,122 @@
         "en": "Lay-Z Spa Pump",
         "nl": "Lay-Z Spa Pomp"
       },
-      "class": "sensor",
+      "class": "heater",
       "capabilities": [
+        "onoff",
         "target_temperature",
         "measure_temperature",
-        "bestway_power",
         "bestway_heat",
         "bestway_wave",
+        "bestway_jet",
         "bestway_filter"
       ],
       "capabilitiesOptions": {
-        "target_temperature": {
-          "min": 10,
-          "max": 40,
-          "step": 1
-        },
-        "bestway_power": {
-          "uiComponent": "toggle",
-          "uiStrategy": false
-        },
-        "bestway_heat": {
-          "uiComponent": "toggle",
-          "uiStrategy": false
-        },
-        "bestway_wave": {
-          "uiComponent": "toggle",
-          "uiStrategy": false
-        },
-        "bestway_filter": {
-          "uiComponent": "toggle",
-          "uiStrategy": false
-        }
+        "target_temperature": { "min": 10, "max": 40, "step": 1 }
       },
       "images": {
         "large": "/drivers/bestway_pump/assets/images/large.png",
         "small": "/drivers/bestway_pump/assets/images/small.png"
       },
       "pair": [
-        {
-          "id": "manual_input"
-        }
+        { "id": "manual_input" }
       ]
     }
   ],
   "flow": {
-    "actions": [
+    "triggers": [
       {
-        "id": "set_bestway_power",
-        "title": {
-          "en": "Turn Power on or off",
-          "nl": "Zet Stroom aan of uit"
-        },
+        "id": "heat_changed",
+        "title": { "en": "Heating turned on or off", "nl": "Verwarming ging aan of uit" },
+        "titleFormatted": { "en": "Heating turned [[value]]", "nl": "Verwarming ging [[value]]" },
         "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=bestway_pump"
-          },
-          {
-            "name": "value",
-            "type": "checkbox",
-            "label": {
-              "en": "On",
-              "nl": "Aan"
-            }
-          }
+          { "name": "device", "type": "device", "filter": "driver_id=bestway_pump" },
+          { "name": "value", "type": "checkbox", "label": { "en": "On", "nl": "Aan" } }
         ]
       },
       {
-        "id": "set_bestway_heat",
-        "title": {
-          "en": "Turn Heating on or off",
-          "nl": "Zet Verwarming aan of uit"
-        },
+        "id": "wave_changed",
+        "title": { "en": "Bubbles turned on or off", "nl": "Bubbels gingen aan of uit" },
+        "titleFormatted": { "en": "Bubbles turned [[value]]", "nl": "Bubbels gingen [[value]]" },
         "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=bestway_pump"
-          },
-          {
-            "name": "value",
-            "type": "checkbox",
-            "label": {
-              "en": "On",
-              "nl": "Aan"
-            }
-          }
+          { "name": "device", "type": "device", "filter": "driver_id=bestway_pump" },
+          { "name": "value", "type": "checkbox", "label": { "en": "On", "nl": "Aan" } }
+        ]
+      },
+      {
+        "id": "jet_changed",
+        "title": { "en": "Hydrojets turned on or off", "nl": "Hydrojets gingen aan of uit" },
+        "titleFormatted": { "en": "Hydrojets turned [[value]]", "nl": "Hydrojets gingen [[value]]" },
+        "args": [
+          { "name": "device", "type": "device", "filter": "driver_id=bestway_pump" },
+          { "name": "value", "type": "checkbox", "label": { "en": "On", "nl": "Aan" } }
+        ]
+      },
+      {
+        "id": "filter_changed",
+        "title": { "en": "Filter turned on or off", "nl": "Filter ging aan of uit" },
+        "titleFormatted": { "en": "Filter turned [[value]]", "nl": "Filter ging [[value]]" },
+        "args": [
+          { "name": "device", "type": "device", "filter": "driver_id=bestway_pump" },
+          { "name": "value", "type": "checkbox", "label": { "en": "On", "nl": "Aan" } }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "set_bestway_heat",
+        "title": { "en": "Turn Heating on or off", "nl": "Zet Verwarming aan of uit" },
+        "titleFormatted": { "en": "Turn Heating [[value]]", "nl": "Zet Verwarming [[value]]" },
+        "args": [
+          { "name": "device", "type": "device", "filter": "driver_id=bestway_pump" },
+          { "name": "value", "type": "checkbox", "label": { "en": "On", "nl": "Aan" } }
         ]
       },
       {
         "id": "set_bestway_wave",
-        "title": {
-          "en": "Turn Bubbles on or off",
-          "nl": "Zet Bubbels aan of uit"
-        },
+        "title": { "en": "Turn Bubbles on or off", "nl": "Zet Bubbels aan of uit" },
+        "titleFormatted": { "en": "Turn Bubbels [[value]]", "nl": "Zet Bubbels [[value]]" },
         "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=bestway_pump"
-          },
-          {
-            "name": "value",
-            "type": "checkbox",
-            "label": {
-              "en": "On",
-              "nl": "Aan"
-            }
-          }
+          { "name": "device", "type": "device", "filter": "driver_id=bestway_pump" },
+          { "name": "value", "type": "checkbox", "label": { "en": "On", "nl": "Aan" } }
+        ]
+      },
+      {
+        "id": "set_bestway_jet",
+        "title": { "en": "Turn Hydrojets on or off", "nl": "Zet Hydrojets aan of uit" },
+        "titleFormatted": { "en": "Turn Hydrojets [[value]]", "nl": "Zet Hydrojets [[value]]" },
+        "args": [
+          { "name": "device", "type": "device", "filter": "driver_id=bestway_pump" },
+          { "name": "value", "type": "checkbox", "label": { "en": "On", "nl": "Aan" } }
         ]
       },
       {
         "id": "set_bestway_filter",
-        "title": {
-          "en": "Turn Filter on or off",
-          "nl": "Zet Filter aan of uit"
-        },
+        "title": { "en": "Turn Filter on or off", "nl": "Zet Filter aan of uit" },
+        "titleFormatted": { "en": "Turn Filter [[value]]", "nl": "Zet Filter [[value]]" },
         "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=bestway_pump"
-          },
-          {
-            "name": "value",
-            "type": "checkbox",
-            "label": {
-              "en": "On",
-              "nl": "Aan"
-            }
-          }
+          { "name": "device", "type": "device", "filter": "driver_id=bestway_pump" },
+          { "name": "value", "type": "checkbox", "label": { "en": "On", "nl": "Aan" } }
         ]
       }
     ]
+  },
+  "translations": {
+    "en": {
+      "capability": {
+        "bestway_heat": { "true": "On", "false": "Off" },
+        "bestway_wave": { "true": "On", "false": "Off" },
+        "bestway_jet": { "true": "On", "false": "Off" },
+        "bestway_filter": { "true": "On", "false": "Off" }
+      }
+    },
+    "nl": {
+      "capability": {
+        "bestway_heat": { "true": "Aan", "false": "Uit" },
+        "bestway_wave": { "true": "Aan", "false": "Uit" },
+        "bestway_jet": { "true": "Aan", "false": "Uit" },
+        "bestway_filter": { "true": "Aan", "false": "Uit" }
+      }
+    }
   }
 }
